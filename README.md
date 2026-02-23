@@ -55,18 +55,18 @@ To overcome previous limitations, we designed a **density-aware patching strateg
 
 1. **Keypoint Detection**  
    - Applied **Harris corner detection** to extract keypoints representing areas of high activity  
-   - ![Harris Keypoints](path/to/keypoints_image.png)
+   
 
 2. **Adaptive Patching**  
    - Split the image into variable-sized patches based on keypoint density  
      - Denser regions → smaller patches  
    - Applied edge detection to merge small patches that intersected many edges (likely cutting through humans)  
-   - ![Adaptive Patches](path/to/patches_image.png)
+
 
 3. **Patch-Based Pose Inference**  
    - Performed pose estimation on each patch individually  
    - Merged results to form the full image pose map  
-   - ![Final Pose Estimation](path/to/final_output_image.png)
+ 
 
 **Advantages:**  
 - Improved detection in crowded regions  
@@ -81,15 +81,6 @@ To overcome previous limitations, we designed a **density-aware patching strateg
 - Allows the model to focus on smaller groups of people without losing context  
 - Reduces errors caused by overlapping individuals  
 
-Example images at each stage:
-
-| Stage | Image |
-|-------|-------|
-| Keypoints | ![Keypoints](path/to/keypoints_image.png) |
-| Patches | ![Patches](path/to/patches_image.png) |
-| Edge Merging | ![Edges](path/to/edges_image.png) |
-| Final Output | ![Final Pose](path/to/final_output_image.png) |
-
 ---
 
 ## Observed Limitations
@@ -98,8 +89,8 @@ Even with improved patch-based inference, some challenges remain:
 
 1. **Cultural Clothing Variations**  
    - Loose garments, hijab, niqab, or chador can lead to missed humans or merged poses  
-   - Hand and foot keypoints are often inaccurately estimated  
-   - Example: ![Flaw in Hijab Detection](path/to/hijab_flaw_image.png)
+   - keypoints are often inaccurately estimated  
+
 
 2. **Remaining Accuracy Gaps**  
    - Our classical preprocessing methods may still miss humans in extremely dense crowds  
